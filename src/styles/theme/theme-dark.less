@@ -1,0 +1,38 @@
+/* 自定义暗黑模式样式 */
+html.dark {
+  @dark-main-bg-color: #141414;
+  @dark-bg-color: #1f1f1f;
+  @dark-border-color: #414243;
+  @dark-text-color: #d9d9d9;
+  @dark-shadow-color: 5px 5px 15px rgb(255 255 255 / 20%);
+  @dark-scrollbar-bg-color: #686868;
+
+  --zb-border-light: 1px solid #4c4d4f;
+
+  /* 需要自定义覆盖的样式 */
+  body {
+    background: none;
+  }
+
+  /* login container（先固定样式） */
+  .login-container {
+    background-color: @dark-main-bg-color !important;
+    .login-box {
+      background-color: rgb(0 0 0 / 80%) !important;
+      .login-form {
+        background-color: @dark-main-bg-color !important;
+        box-shadow: @dark-shadow-color !important;
+        .login-logo {
+          .logo-text {
+            color: @dark-text-color !important;
+          }
+        }
+        .login-btn {
+          .ant-btn-default {
+            color: @dark-text-color !important;
+          }
+        }
+      }
+    }
+  }
+}

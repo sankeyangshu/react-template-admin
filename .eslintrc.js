@@ -30,5 +30,9 @@ module.exports = {
    */
   rules: {
     'react-refresh/only-export-components': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off', // 禁止使用 any 类型
+    '@typescript-eslint/ban-types': 'off', // 禁止使用特定类型
+    'react-hooks/rules-of-hooks': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };

@@ -3,6 +3,7 @@
     "dsznajder.es7-react-js-snippets",
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "clinyong.vscode-css-modules"
   ]
 }
