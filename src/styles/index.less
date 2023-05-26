@@ -1,6 +1,6 @@
 @import './reset.less';
 @import './variables.less';
-@import './theme/theme-default.less';
+@import './theme-dark.less';
 
 html,
 body {
@@ -23,4 +23,26 @@ body {
 
 #root {
   height: 100%;
+}
+
+/* login container（先固定样式） */
+.login-container {
+  background-color: #eeeeee !important;
+  .login-box {
+    background-color: hsl(0deg 0% 100% / 80%) !important;
+    .login-form {
+      background-color: transparent !important;
+      box-shadow: 2px 3px 7px rgb(0 0 0 / 20%) !important;
+      .login-logo {
+        .logo-text {
+          color: #475768 !important;
+        }
+      }
+      .login-btn {
+        .ant-btn-default {
+          color: #606266 !important;
+        }
+      }
+    }
+  }
 }
