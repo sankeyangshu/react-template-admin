@@ -1,5 +1,6 @@
 import { useRoutes, RouteObject } from 'react-router-dom';
 import Login from '@/views/Login';
+import LayoutMain from '@/layouts';
 
 /**
  * 公共路由
@@ -7,6 +8,10 @@ import Login from '@/views/Login';
  * element ==> 路由组件
  */
 export const constantRoutes: RouteObject[] = [
+  {
+    path: '/',
+    element: <LayoutMain />,
+  },
   {
     path: '/login',
     element: <Login />,

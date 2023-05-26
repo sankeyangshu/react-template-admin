@@ -17,8 +17,12 @@ html {
   box-sizing: border-box;
 }
 
+/* 需要自定义覆盖的样式 */
 body {
-  background: #f0f2f5;
+  background-color: @light-bg-color !important;
+  #driver-highlighted-element-stage {
+    background-color: #fff !important;
+  }
 }
 
 #root {
@@ -41,6 +45,73 @@ body {
       .login-btn {
         .ant-btn-default {
           color: #606266 !important;
+        }
+      }
+    }
+  }
+}
+
+/* container */
+.layout-container {
+  /* sider */
+  .ant-layout-sider {
+    border-right: 1px solid @light-border-color !important;
+    .ant-menu {
+      &::-webkit-scrollbar {
+        background-color: #001529 !important;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #41444b !important;
+      }
+    }
+    .logo-box {
+      border-bottom: 1px solid #010b14 !important;
+    }
+  }
+
+  /* layout */
+  .ant-layout {
+    background-color: @light-main-bg-color !important;
+    .tabs,
+    .footer,
+    .card {
+      background-color: @light-bg-color !important;
+      border-color: @light-border-color !important;
+    }
+    .ant-layout-header {
+      height: 55px;
+      padding: 0 40px 0 20px;
+      background-color: @light-bg-color !important;
+      border-color: @light-border-header-color !important;
+      .icon-style,
+      .username {
+        color: @light-text-color !important;
+      }
+    }
+    .footer {
+      a {
+        color: @light-text-color !important;
+      }
+    }
+    .card {
+      box-shadow: @light-shadow-color !important;
+      .text {
+        color: #585858 !important;
+      }
+    }
+    .ant-layout-content {
+      &::-webkit-scrollbar {
+        background-color: @light-main-bg-color !important;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: @light-scrollbar-bg-color !important;
+      }
+      .card {
+        &::-webkit-scrollbar {
+          background-color: @light-bg-color !important;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: @light-scrollbar-bg-color !important;
         }
       }
     }
