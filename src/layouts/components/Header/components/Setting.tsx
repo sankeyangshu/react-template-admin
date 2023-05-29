@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { Drawer } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
+import { Divider, Drawer } from 'antd';
+import { FireOutlined, SettingOutlined } from '@ant-design/icons';
 import SwitchDark from '@/components/SwitchDark';
 
 const Setting: FC = () => {
@@ -23,6 +23,11 @@ const Setting: FC = () => {
         open={visible}
         onClose={() => setVisible(false)}
       >
+        {/* 全局主题 */}
+        <Divider className="divider">
+          <FireOutlined />
+          全局主题
+        </Divider>
         <div className="theme-item">
           <span>暗黑模式</span>
           <SwitchDark />
