@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { DEFAULT_THEMECOLOR } from '@/config';
 
 /**
  * 主题设置类型
@@ -40,7 +41,7 @@ export const useSettingStore = create<settingsStoreType>()((set, get) => ({
   isReload: true, // 是否刷新当前页
   themeConfig: {
     showSetting: false, // 显示设置
-    themeColor: '#1890ff', // 主题颜色-默认是#1890ff
+    themeColor: DEFAULT_THEMECOLOR, // 主题颜色-默认是#1890ff
     isDark: false, // 深色模式 切换暗黑模式
     isGrey: false, // 灰色模式
     isWeak: false, // 色弱模式
