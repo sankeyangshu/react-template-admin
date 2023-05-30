@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Divider, Drawer } from 'antd';
+import { Divider, Drawer, Tooltip } from 'antd';
 import { FireOutlined, SettingOutlined } from '@ant-design/icons';
 import SwitchDark from '@/components/SwitchDark';
 
@@ -14,7 +14,9 @@ const Setting: FC = () => {
 
   return (
     <>
-      <SettingOutlined className="icon-style" onClick={onClickShowDrawer} />
+      <Tooltip title="系统设置">
+        <SettingOutlined className="icon-style" onClick={onClickShowDrawer} />
+      </Tooltip>
       <Drawer
         title="系统设置"
         placement="right"
