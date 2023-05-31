@@ -94,6 +94,14 @@ const LayoutMenu = () => {
         return result.push(getItem(item.meta?.title, item.path, addIcon(item.meta?.icon)));
       }
       // 存在children，也存在meta
+      // 如果只有一个子元素
+      if (!isNull(item.children) && item.children?.length === 1) {
+        const child = item.children[0];
+        const title = child.meta?.title || item.meta?.title;
+        const path = child.path || item.path;
+        const icon = child.meta?.icon || item.meta?.icon;
+        return result.push(getItem(title, path, addIcon(icon)));
+      }
       result.push(
         getItem(
           item.meta?.title,
@@ -110,7 +118,6 @@ const LayoutMenu = () => {
   const getMenuList = () => {
     const fRoutes = filterRoutes(constantRoutes);
     setMenuList(generateMenus(fRoutes));
-    // console.log(menuList);
   };
 
   // 初始化菜单列表

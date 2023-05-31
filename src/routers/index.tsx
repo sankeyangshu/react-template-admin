@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom';
 import { RouteObject } from './routeType';
 import lazyLoad from './utils/lazyLoad';
 import Layout from '@/layouts';
@@ -23,6 +23,9 @@ export const notFoundRouter = {
 export const constantRoutes: RouteObject[] = [
   {
     path: '/',
+    element: <Navigate to="/home" />,
+  },
+  {
     element: <Layout />,
     children: [
       {

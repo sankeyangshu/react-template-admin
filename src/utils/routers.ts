@@ -33,9 +33,7 @@ export const isNull = (data: any) => {
  * @return 符合条件的路由
  */
 export const filterRoutes = (routes: RouteObject[]) => {
-  console.log('🚀 ~ file: routers.ts:36 ~ filterRoutes ~ routes:', routes);
   const childrenRoutes = getChildrenRoutes(routes);
-  console.log('🚀 ~ file: routers.ts:37 ~ filterRoutes ~ childrenRoutes:', childrenRoutes);
   return routes.filter((route) => {
     return !childrenRoutes.find((childrenRoute) => {
       return childrenRoute.path === route.path;
