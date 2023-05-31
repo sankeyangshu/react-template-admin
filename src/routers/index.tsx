@@ -1,6 +1,8 @@
 import { useRoutes, RouteObject } from 'react-router-dom';
 import Login from '@/views/Login';
 import LayoutMain from '@/layouts';
+import NotFound from '@/views/ErrorPages/404';
+import NotAuth from '@/views/ErrorPages/403';
 
 /**
  * 公共路由
@@ -15,6 +17,14 @@ export const constantRoutes: RouteObject[] = [
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/404',
+    element: <NotFound />,
+  },
+  {
+    path: '/403',
+    element: <NotAuth />,
   },
 ];
 
