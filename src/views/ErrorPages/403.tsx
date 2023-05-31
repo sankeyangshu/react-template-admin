@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import errorBg from '@/assets/images/403.png';
 import errorCloud from '@/assets/images/error_cloud.png';
 import moduleCss from './index.module.less';
@@ -29,6 +30,9 @@ const NotAuth = () => {
             <div className={moduleCss['http-btn']}>
               <div className={moduleCss['btn-noauth']}>您没有访问权限！</div>
               <div className={moduleCss['btn-info']}>请检查URL地址是否正确, 或点击回到首页。</div>
+              <NavLink to={{ pathname: '/' }} className={moduleCss.btn}>
+                回到首页
+              </NavLink>
             </div>
           </div>
         </div>
