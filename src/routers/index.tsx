@@ -13,7 +13,7 @@ export const asyncRoutes: RouteObject[] = [...systemRoutes];
  */
 export const notFoundRouter = {
   path: '*',
-  title: 'notFound',
+  hidden: true,
   element: lazyLoad(lazy(() => import('@/views/ErrorPages/404'))),
 };
 
@@ -37,6 +37,7 @@ export const constantRoutes: RouteObject[] = [
   },
   {
     path: '/login',
+    hidden: true,
     element: lazyLoad(lazy(() => import('@/views/Login'))),
   },
   {

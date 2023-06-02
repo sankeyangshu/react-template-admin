@@ -4,6 +4,7 @@ import Setting from './components/Setting';
 import ScreenFull from './components/ScreenFull';
 import Notice from './components/Notice';
 import CollapseIcon from './components/CollapseIcon';
+import BreadcrumbNav from './components/Breadcrumb';
 import './index.less';
 
 // 获取头部组件
@@ -14,6 +15,7 @@ const LayoutHeader = () => {
     <Header>
       <div className="header-left">
         <CollapseIcon />
+        <BreadcrumbNav />
       </div>
       <div className="header-right">
         {/* 全屏 */}

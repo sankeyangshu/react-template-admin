@@ -56,3 +56,72 @@ export const getOpenKeys = (path: string) => {
   }
   return newArr;
 };
+
+/**
+ * @description 递归当前路由的 所有 关联的路由，生成面包屑导航栏
+ * @param {string} path 当前访问地址
+ * @param {RouteObject[]} menuList 菜单列表
+ * @returns 面包屑导航列表
+ */
+export const getBreadcrumbList = (path: string, menuList: RouteObject[]) => {
+  const tempPath: RouteObject[] = [];
+  try {
+    const getNodePath = (node: RouteObject) => {
+      tempPath.push(node);
+
+      // 找到符合条件的节点，通过throw终止掉递归
+      if (node.path === path) {
+        throw new Error('GOT IT!');
+      }
+      if (node.children && node.children.length > 0) {
+        for (let i = 0; i < node.children.length; i++) {
+          getNodePath(node.children[i]);
+        }
+        // 当前节点的子节点遍历完依旧没找到，则删除路径中的该节点
+        tempPath.pop();
+      } else {
+        // 找到叶子节点时，删除路径当中的该叶子节点
+        tempPath.pop();
+      }
+    };
+    for (let i = 0; i < menuList.length; i++) {
+      getNodePath(menuList[i]);
+    }
+  } catch (e) {
+    // 筛选路由名称数组，将数组中为空的项删除，以确保返回的数组对象正确
+    const temp = tempPath
+      .map((item) => {
+        if (item.meta) {
+          return item.meta.title;
+        }
+        return '';
+      })
+      .filter((val) => val !== '');
+    // 返回数组最后一项，最后一项为该路由正确的名称
+    return temp[temp.length - 1];
+  }
+};
+
+/**
+ * @description 筛选路由列表，找出符合条件的面包屑列表
+ * @param {string} routes 当前路由列表
+ * @returns 面包屑列表
+ */
+export const findAllBreadcrumb = (routes: RouteObject[]): { [key: string]: string } => {
+  const handleBreadcrumbList: any = {};
+  const loop = (menuItem: RouteObject) => {
+    // 不存在children && meta ，或不需要展示在侧边栏，直接返回
+    if ((isNull(menuItem.children) && isNull(menuItem.meta)) || menuItem.hidden) return;
+
+    // 下面判断代码解释 *** !item?.children?.length   ==>   (item.children && item.children.length > 0)
+    if (menuItem?.children?.length) {
+      menuItem.children.forEach((item) => loop(item));
+      if (!menuItem.path) return;
+      handleBreadcrumbList[menuItem.path] = getBreadcrumbList(menuItem.path, routes);
+    } else {
+      handleBreadcrumbList[menuItem.path!] = getBreadcrumbList(menuItem.path!, routes);
+    }
+  };
+  routes.forEach((item) => loop(item));
+  return handleBreadcrumbList;
+};
