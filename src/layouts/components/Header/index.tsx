@@ -5,6 +5,7 @@ import ScreenFull from './components/ScreenFull';
 import Notice from './components/Notice';
 import CollapseIcon from './components/CollapseIcon';
 import BreadcrumbNav from './components/Breadcrumb';
+import HeaderSearch from './components/HeaderSearch';
 import './index.less';
 
 // 获取头部组件
@@ -18,6 +19,8 @@ const LayoutHeader = () => {
         <BreadcrumbNav />
       </div>
       <div className="header-right">
+        {/* 菜单搜索 */}
+        <HeaderSearch />
         {/* 全屏 */}
         <ScreenFull />
         {/* 通知 */}
