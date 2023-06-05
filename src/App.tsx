@@ -3,6 +3,7 @@ import { ConfigProvider, theme, ThemeConfig } from 'antd';
 import { HashRouter } from 'react-router-dom';
 import { useSettingStore } from '@/store/setting';
 import { useTheme } from '@/hooks/useTheme';
+import { getBrowserLang } from '@/utils';
 import type { Locale } from 'antd/es/locale';
 import 'dayjs/locale/zh-cn';
 import i18n from 'i18next';
@@ -45,8 +46,11 @@ const App = () => {
   // 设置 antd 语言国际化
   const setAntdLanguage = () => {
     // 如果全局中有默认语言就设置成默认语言，没有默认语言就设置成浏览器默认语言
-    if (language && language == 'zhCn') return setLocale(zhCN);
-    if (language && language == 'en') return setLocale(enUS);
+    if (language) {
+      return setLocale(language === 'zhCn' ? zhCN : enUS);
+    } else {
+      return setLocale(getBrowserLang() === 'zhCn' ? zhCN : enUS);
+    }
   };
 
   useEffect(() => {
