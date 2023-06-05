@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Tooltip, Modal, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 // TODO: 待国际化完成后，在完成模糊搜索
 const HeaderSearch = () => {
@@ -14,9 +15,12 @@ const HeaderSearch = () => {
     setIsShowSearchModal(!isShowSearchModal);
   };
 
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   return (
     <>
-      <Tooltip title="菜单搜索">
+      <Tooltip title={t('navBar.headerSearch')}>
         <SearchOutlined className="icon-style" onClick={onClickShowSearch} />
       </Tooltip>
       <Modal

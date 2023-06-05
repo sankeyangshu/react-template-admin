@@ -2,7 +2,7 @@ import './index.less';
 
 interface SvgProps {
   icon: string; // 图标的名称 ==> 必传
-  className?: { [key: string]: any }; // 图标的样式 ==> 非必传
+  className?: string; // 图标的样式 ==> 非必传
 }
 
 const SvgIcon = (props: SvgProps) => {

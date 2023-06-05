@@ -1,5 +1,6 @@
 import { Popover, Tooltip, Badge, Tabs } from 'antd';
 import { BellOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import type { TabsProps } from 'antd';
 import logo from '@/assets/images/logo.png';
 import noMessage from '@/assets/images/noMessage.png';
@@ -58,10 +59,13 @@ const tabItems: TabsProps['items'] = [
 const tabsContent = <Tabs defaultActiveKey="first" items={tabItems} onChange={onChange} />;
 
 const Notice = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   return (
     <>
       <Popover content={tabsContent} placement="bottom" trigger="click">
-        <Tooltip title="通知" placement="bottom">
+        <Tooltip title={t('navBar.notice')} placement="bottom">
           <Badge count={5} className="icon-style">
             <BellOutlined />
           </Badge>

@@ -4,6 +4,7 @@ import { FireOutlined, SettingOutlined } from '@ant-design/icons';
 import { useSettingStore } from '@/store/setting';
 import { useTheme } from '@/hooks/useTheme';
 import { DEFAULT_THEMECOLOR } from '@/config';
+import { useTranslation } from 'react-i18next';
 import SwitchDark from '@/components/SwitchDark';
 
 const Setting: FC = () => {
@@ -44,13 +45,16 @@ const Setting: FC = () => {
   // 获取切换灰色和色弱模式hooks
   const { changeGreyOrWeak } = useTheme();
 
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   return (
     <>
-      <Tooltip title="系统设置">
+      <Tooltip title={t('navBar.setting')}>
         <SettingOutlined className="icon-style" onClick={onClickShowDrawer} />
       </Tooltip>
       <Drawer
-        title="系统设置"
+        title={t('navBar.setting')}
         placement="right"
         closable={false}
         width={320}

@@ -2,9 +2,13 @@ import { createElement, useEffect } from 'react';
 import { Tooltip, message } from 'antd';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 import { useBoolean } from 'ahooks';
+import { useTranslation } from 'react-i18next';
 import screenfull from 'screenfull';
 
 const ScreenFull = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   // 是否全屏和切换方法
   const [isFullscreen, { setTrue, setFalse }] = useBoolean(screenfull.isFullscreen);
 
@@ -40,7 +44,7 @@ const ScreenFull = () => {
 
   return (
     <>
-      <Tooltip title="全屏设置">
+      <Tooltip title={!isFullscreen ? t('navBar.screenfull') : t('navBar.screenfullRetract')}>
         {createElement(isFullscreen ? FullscreenExitOutlined : FullscreenOutlined, {
           className: 'icon-style',
           onClick: onClickToggleScreenFull,

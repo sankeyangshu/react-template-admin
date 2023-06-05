@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import User from './components/User';
 import Setting from './components/Setting';
 import ScreenFull from './components/ScreenFull';
+import LangSelect from './components/LangSelect';
 import Notice from './components/Notice';
 import CollapseIcon from './components/CollapseIcon';
 import BreadcrumbNav from './components/Breadcrumb';
@@ -23,6 +24,8 @@ const LayoutHeader = () => {
         <HeaderSearch />
         {/* 全屏 */}
         <ScreenFull />
+        {/* 国际化 */}
+        <LangSelect />
         {/* 通知 */}
         <Notice />
         {/* 设置 */}
