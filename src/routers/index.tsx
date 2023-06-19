@@ -31,7 +31,7 @@ export const constantRoutes: RouteObject[] = [
       {
         path: '/home',
         element: lazyLoad(lazy(() => import('@/views/Home'))),
-        meta: { title: '首页', key: 'Home', affix: true },
+        meta: { title: 'home', key: 'Home', affix: true },
       },
     ],
   },

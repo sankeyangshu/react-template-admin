@@ -2,8 +2,12 @@ import { Breadcrumb } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import { findAllBreadcrumb } from '@/utils/routers';
 import { constantRoutes } from '@/routers';
+import { useTranslation } from 'react-i18next';
 
 const BreadcrumbNav = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
   // 获取路由对象
   const { pathname } = useLocation();
   const pathSnippets = pathname.split('/').filter((i) => i);
@@ -18,9 +22,9 @@ const BreadcrumbNav = () => {
     // 面包屑最后一项不可点击
     const title =
       Number(index + 1) === pathSnippets.length ? (
-        breadcrumbData[url]
+        t(`route.${breadcrumbData[url]}`)
       ) : (
-        <Link to={url}>{breadcrumbData[url]}</Link>
+        <Link to={url}>{t(`route.${breadcrumbData[url]}`)}</Link>
       );
 
     return {

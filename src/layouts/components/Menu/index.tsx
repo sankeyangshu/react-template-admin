@@ -4,6 +4,7 @@ import { Layout, Menu, Spin } from 'antd';
 import { useSettingStore } from '@/store/setting';
 import { constantRoutes } from '@/routers';
 import { filterRoutes, isNull } from '@/utils/routers';
+import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';
 import type { RouteObject } from '@/routers/routeType';
 import * as antdIcons from '@ant-design/icons';
@@ -18,24 +19,27 @@ const { Sider } = Layout;
  */
 type MenuItem = Required<MenuProps>['items'][number];
 
-// menu item
-function getItem(
-  label: React.ReactNode,
-  key?: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: 'group'
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
 const LayoutMenu = () => {
+  // 使用i18n全局函数
+  const { t } = useTranslation();
+
+  // menu item
+  const getItem = (
+    label: React.ReactNode,
+    key?: React.Key,
+    icon?: React.ReactNode,
+    children?: MenuItem[],
+    type?: 'group'
+  ): MenuItem => {
+    return {
+      key,
+      icon,
+      children,
+      label: t(`route.${label}`),
+      type,
+    } as MenuItem;
+  };
+
   // 获取全局状态管理仓库中系统设置状态
   const isCollapse = useSettingStore((state) => state.isCollapse);
 
