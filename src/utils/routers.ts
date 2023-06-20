@@ -1,4 +1,9 @@
-import { RouteObject } from '@/routers/routeType';
+import { MetaType, RouteObject } from '@/routers/routeType';
+
+/**
+ * 路由一维数组类型
+ */
+export type generateRoutesType = RouteObject & MetaType;
 
 /**
  * @description: 返回所有子路由
@@ -29,7 +34,7 @@ export const isNull = (data: any) => {
 
 /**
  * @description: 处理脱离层级的路由：某个一级路由为其他子路由，则剔除该一级路由，保留路由层级
- * @param {RouteObject[]} routes
+ * @param {RouteObject[]} routes 路由数组
  * @return 符合条件的路由
  */
 export const filterRoutes = (routes: RouteObject[]) => {
@@ -39,6 +44,50 @@ export const filterRoutes = (routes: RouteObject[]) => {
       return childrenRoute.path === route.path;
     });
   });
+};
+
+/**
+ * @description: 筛选所有路由，使用递归处理路由菜单，生成一维数组，
+ * @param {RouteObject} routes 路由数组
+ * @return 一维路由数组
+ */
+export const generateRoutes = (routes: RouteObject[]) => {
+  let result: generateRoutesType[] = [];
+  routes.forEach((item) => {
+    // 不存在children && meta ，或不需要展示在侧边栏，直接返回
+    if ((isNull(item.children) && isNull(item.meta)) || item.hidden) return;
+
+    // 存在meta，不存在children
+    if (isNull(item.children) && !isNull(item.meta)) {
+      return result.push({
+        title: item.meta!.title,
+        path: item.path,
+        icon: item.meta?.icon,
+        affix: item.meta?.affix,
+      });
+    }
+    // 存在children，也存在meta
+    // 如果只有一个子元素
+    if (!isNull(item.children) && item.children?.length === 1) {
+      const child = item.children[0];
+      const title = child.meta?.title || item.meta?.title;
+      const path = child.path || item.path;
+      const icon = child.meta?.icon || item.meta?.icon;
+      const affix = child.meta?.affix || item.meta?.affix;
+      return result.push({
+        title: title!,
+        path: path,
+        icon: icon,
+        affix: affix,
+      });
+    }
+
+    const tempRoutes = generateRoutes(item.children as RouteObject[]);
+    if (tempRoutes && tempRoutes.length >= 1) {
+      result = [...result, ...tempRoutes];
+    }
+  });
+  return result;
 };
 
 /**
@@ -55,6 +104,24 @@ export const getOpenKeys = (path: string) => {
     newArr.push(newStr);
   }
   return newArr;
+};
+
+/**
+ * @description 递归查询对应的路由
+ * @param {string} path 当前访问地址
+ * @param {RouteObject[]} routes 路由列表
+ * @returns 路由对象
+ */
+export const searchRoute = (path: string, routes: RouteObject[] = []): RouteObject => {
+  let result: RouteObject = {};
+  for (const item of routes) {
+    if (item.path === path) return item;
+    if (item.children) {
+      const res = searchRoute(path, item.children);
+      if (Object.keys(res).length) result = res;
+    }
+  }
+  return result;
 };
 
 /**
@@ -113,7 +180,7 @@ export const findAllBreadcrumb = (routes: RouteObject[]): { [key: string]: strin
     // 不存在children && meta ，或不需要展示在侧边栏，直接返回
     if ((isNull(menuItem.children) && isNull(menuItem.meta)) || menuItem.hidden) return;
 
-    // 下面判断代码解释 *** !item?.children?.length   ==>   (item.children && item.children.length > 0)
+    // 下面判断代码解释 *** item?.children?.length   ==>   (item.children && item.children.length > 0)
     if (menuItem?.children?.length) {
       menuItem.children.forEach((item) => loop(item));
       if (!menuItem.path) return;

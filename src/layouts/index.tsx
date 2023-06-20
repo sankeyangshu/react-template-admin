@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import LayoutMenu from './components/Menu';
 import LayoutHeader from './components/Header';
+import LayoutTabs from './components/TagsView';
 import './index.less';
 
 // 获取内容组件
@@ -18,7 +19,7 @@ const LayoutMain = () => {
         <LayoutHeader></LayoutHeader>
 
         {/* 操作栏 */}
-        {/* <LayoutTabs></LayoutTabs> */}
+        <LayoutTabs></LayoutTabs>
 
         {/* 内容区域 */}
         <Content>
