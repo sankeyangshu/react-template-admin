@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Layout, Menu, Spin } from 'antd';
 import { useSettingStore } from '@/store/setting';
 import { constantRoutes } from '@/routers';
-import { filterRoutes, isNull } from '@/utils/routers';
+import { filterRoutes, getOpenKeys, isNull } from '@/utils/routers';
 import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';
 import type { RouteObject } from '@/routers/routeType';
@@ -51,7 +51,8 @@ const LayoutMenu = () => {
   // 刷新页面菜单保持高亮
   useEffect(() => {
     setSelectedKeys([pathname]);
-  }, [pathname]);
+    isCollapse ? null : setOpenKeys(getOpenKeys(pathname));
+  }, [pathname, isCollapse]);
 
   // 设置当前展开的 subMenu
   const onOpenChange = (openKeys: string[]) => {
@@ -59,6 +60,12 @@ const LayoutMenu = () => {
     const latestOpenKey = openKeys[openKeys.length - 1];
     if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys);
     setOpenKeys([latestOpenKey]);
+  };
+
+  // 点击当前菜单跳转路由
+  const navigate = useNavigate();
+  const onClickMenuLink: MenuProps['onClick'] = ({ key }: { key: string }) => {
+    navigate(key);
   };
 
   // 菜单列表
@@ -128,12 +135,6 @@ const LayoutMenu = () => {
   useEffect(() => {
     getMenuList();
   }, []);
-
-  // 点击当前菜单跳转路由
-  const navigate = useNavigate();
-  const onClickMenuLink: MenuProps['onClick'] = ({ key }: { key: string }) => {
-    navigate(key);
-  };
 
   return (
     <Sider trigger={null} theme="dark" width={220} collapsible collapsed={isCollapse}>
