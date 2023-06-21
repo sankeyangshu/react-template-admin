@@ -30,9 +30,11 @@ export default {
     noAuthBackHome: '回到首页',
   },
   tagsView: {
+    more: '更多',
     refresh: '刷新',
-    closeRight: '关闭右侧',
+    closeCurrent: '关闭当前',
     closeOther: '关闭其他',
+    closeAll: '关闭所有',
   },
   theme: {
     themeColorChange: '主题色更换',

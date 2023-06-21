@@ -30,9 +30,11 @@ export default {
     noAuthBackHome: 'Back Home',
   },
   tagsView: {
+    more: 'More',
     refresh: 'Refresh',
-    closeRight: 'Close Rights',
+    closeCurrent: 'Close Current',
     closeOther: 'Close Others',
+    closeAll: 'Close All',
   },
   theme: {
     themeColorChange: 'Theme Color Change',
