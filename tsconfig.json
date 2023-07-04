@@ -23,10 +23,10 @@
     "baseUrl": ".",
     // 模块名到基于 baseUrl的路径映射的列表。
     "paths": {
+      "@": ["src"],
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
