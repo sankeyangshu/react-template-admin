@@ -23,16 +23,23 @@ interface themeConfigType {
 export type themeConfigKeyType = keyof themeConfigType;
 
 /**
+ * 组件尺寸类型
+ */
+export type componentSizeType = 'small' | 'large' | 'middle';
+
+/**
  * 系统设置store类型
  */
 export interface settingsStoreType {
   isCollapse: boolean;
   language: string;
   isReload: boolean;
+  componentSize: componentSizeType;
   themeConfig: themeConfigType;
   setCollapse: (value: boolean) => void;
   setLanguage: (value: string) => void;
   setReload: () => void;
+  setComponentSize: (value: componentSizeType) => void;
   setThemeConfig: (key: themeConfigKeyType, val: string | boolean) => void;
 }
 
@@ -42,6 +49,7 @@ export const useSettingStore = create<settingsStoreType>()(
       isCollapse: false, // 是否收缩左侧菜单栏
       language: 'zhCn', // 国际化-默认是zhCn
       isReload: true, // 是否刷新当前页
+      componentSize: 'middle', // 组件大小切换
       themeConfig: {
         showSetting: false, // 显示设置
         themeColor: DEFAULT_THEMECOLOR, // 主题颜色-默认是#1890ff
@@ -67,6 +75,9 @@ export const useSettingStore = create<settingsStoreType>()(
           set({ isReload: true });
         }, 50);
       },
+
+      // 组件尺寸切换
+      setComponentSize: (value: componentSizeType) => set({ componentSize: value }),
 
       // 设置主题
       setThemeConfig: (key: themeConfigKeyType, val: string | boolean) => {

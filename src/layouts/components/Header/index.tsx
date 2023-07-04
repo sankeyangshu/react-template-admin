@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import User from './components/User';
 import Setting from './components/Setting';
 import ScreenFull from './components/ScreenFull';
+import ComponentSize from './components/ComponentSize';
 import LangSelect from './components/LangSelect';
 import Notice from './components/Notice';
 import CollapseIcon from './components/CollapseIcon';
@@ -24,6 +25,8 @@ const LayoutHeader = () => {
         <HeaderSearch />
         {/* 全屏 */}
         <ScreenFull />
+        {/* 组件尺寸切换 */}
+        <ComponentSize />
         {/* 国际化 */}
         <LangSelect />
         {/* 通知 */}

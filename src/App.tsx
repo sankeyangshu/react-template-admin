@@ -16,10 +16,12 @@ const { darkAlgorithm, defaultAlgorithm } = theme;
 
 const App = () => {
   // 获取全局状态管理仓库中系统设置状态
-  const isDark = useSettingStore((state) => state.themeConfig.isDark);
-
-  // 获取主题色
-  const themeColor = useSettingStore((state) => state.themeConfig.themeColor);
+  const [isDark, themeColor, language, componentSize] = useSettingStore((state) => [
+    state.themeConfig.isDark,
+    state.themeConfig.themeColor,
+    state.language,
+    state.componentSize,
+  ]);
 
   // Ant Design主题变量
   const [antdTheme, setAntdTheme] = useState<ThemeConfig>({});
@@ -36,9 +38,6 @@ const App = () => {
       },
     });
   }, [isDark, themeColor]);
-
-  // 获取全局设置中国际化语言默认值
-  const language = useSettingStore((state) => state.language);
 
   // 国际化
   const [locale, setLocale] = useState<Locale>(zhCN);
@@ -60,7 +59,7 @@ const App = () => {
   }, [language]);
 
   return (
-    <ConfigProvider locale={locale} theme={antdTheme}>
+    <ConfigProvider locale={locale} theme={antdTheme} componentSize={componentSize}>
       <HashRouter>
         <Router />
       </HashRouter>

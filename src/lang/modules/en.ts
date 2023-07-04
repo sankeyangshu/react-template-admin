@@ -51,6 +51,7 @@ export default {
     headerSearchText: 'Menu search: supports menu names and paths',
     screenfull: 'Full Screen',
     screenfullRetract: 'Full Screen Retract',
+    componentSize: 'componentSize',
     lang: 'Globalization',
     guide: 'Function Guide',
     home: 'Home',
@@ -59,6 +60,11 @@ export default {
     user: 'User',
     changePassword: 'Change Password',
     logout: 'Log out',
+  },
+  componentSize: {
+    small: 'small',
+    large: 'large',
+    middle: 'middle',
   },
   api: {
     errMsg400: 'Request failed! Please try again later',

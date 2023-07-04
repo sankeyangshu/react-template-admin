@@ -51,6 +51,7 @@ export default {
     headerSearchText: '菜单搜索 ：支持菜单名称、路径',
     screenfull: '全屏',
     screenfullRetract: '收起',
+    componentSize: '组件尺寸',
     lang: '国际化',
     guide: '功能引导',
     home: '首页',
@@ -59,6 +60,11 @@ export default {
     user: '用户名',
     changePassword: '修改密码',
     logout: '退出登录',
+  },
+  componentSize: {
+    small: '小型',
+    large: '大型',
+    middle: '默认',
   },
   api: {
     errMsg400: '请求失败！请您稍后重试',
