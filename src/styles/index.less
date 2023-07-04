@@ -1,20 +1,18 @@
-@import './reset.less';
-@import './variables.less';
-@import './theme-dark.less';
-
+@import url('./reset.less');
+@import url('./variables.less');
+@import url('./theme-dark.less');
 html,
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
-    sans-serif;
+  text-rendering: optimizelegibility;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    Arial, sans-serif;
 }
-
 html {
-  height: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 /* 需要自定义覆盖的样式 */
@@ -24,14 +22,13 @@ body {
     background-color: #fff !important;
   }
 }
-
 #root {
   height: 100%;
 }
 
 /* login container（先固定样式） */
 .login-container {
-  background-color: #eeeeee !important;
+  background-color: #eee !important;
   .login-box {
     background-color: hsl(0deg 0% 100% / 80%) !important;
     .login-form {

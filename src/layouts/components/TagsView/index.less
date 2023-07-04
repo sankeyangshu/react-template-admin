@@ -1,8 +1,8 @@
 .tags-view {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #ffffff;
+  justify-content: space-between;
+  background: #fff;
   border-bottom: 1px solid #e4e7ed;
   .ant-tabs {
     padding: 0 90px 0 13px;
@@ -17,7 +17,7 @@
       .ant-tabs-tab-with-remove.ant-tabs-tab-active {
         .ant-tabs-tab-remove {
           margin: 7px;
-          color: @primaryColor !important;
+          color: @primary-color !important;
           opacity: 1 !important;
         }
         .ant-tabs-tab-btn {
@@ -26,7 +26,7 @@
       }
       .ant-tabs-tab {
         padding: 8px 22px;
-        color: #cccccc;
+        color: #ccc;
         background: none;
         border: none;
         transition: none;
@@ -36,11 +36,11 @@
         .ant-tabs-tab-remove {
           position: absolute;
           right: 0;
-          color: #cccccc;
+          color: #ccc;
           opacity: 0;
           transition: 0.1s ease-in-out;
           &:hover {
-            color: @primaryColor;
+            color: @primary-color;
           }
         }
       }
