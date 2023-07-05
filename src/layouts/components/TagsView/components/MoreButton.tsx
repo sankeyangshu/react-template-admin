@@ -1,17 +1,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import {
-  CloseCircleOutlined,
-  CloseOutlined,
-  DownOutlined,
-  FileExcelOutlined,
-  ReloadOutlined,
-} from '@ant-design/icons';
+import { CloseOutlined, DownOutlined, ReloadOutlined } from '@ant-design/icons';
 import { Dropdown, Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useSettingStore } from '@/store/setting';
 import { useTagsViewStore } from '@/store/tagsView';
 import { HOME_URL } from '@/config';
 import type { MenuProps } from 'antd';
+import SvgIcon from '@/components/SvgIcon';
 
 const MoreButton = () => {
   // 使用i18n全局函数
@@ -69,7 +64,9 @@ const MoreButton = () => {
     {
       label: (
         <span>
-          <FileExcelOutlined style={{ marginRight: '10px' }} />
+          <span style={{ marginRight: '10px' }}>
+            <SvgIcon icon="FolderRemove" />
+          </span>
           {t('tagsView.closeCurrent')}
         </span>
       ),
@@ -89,7 +86,9 @@ const MoreButton = () => {
     {
       label: (
         <span>
-          <CloseCircleOutlined style={{ marginRight: '10px' }} />
+          <span style={{ marginRight: '10px' }}>
+            <SvgIcon icon="FolderDelete" />
+          </span>
           {t('tagsView.closeAll')}
         </span>
       ),
