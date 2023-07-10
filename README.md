@@ -19,7 +19,7 @@
 
 ## ✨ 项目功能
 
-- 🚀 采用最新技术找开发：React18、React-Router v6、React-Hooks、TypeScript、Vite4
+- 🚀 采用最新技术栈开发：React18、React-Router v6、React-Hooks、TypeScript、Vite4
 - 🚀 采用 Vite4 作为项目开发、打包工具（配置 Gzip 打包、TSX 语法、跨域代理…）
 - 🚀 整个项目集成了 TypeScript
 - 🚀 使用 Zustand 做状态管理，轻量、简单、易用
