@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
-import LayoutMenu from './components/Menu';
 import LayoutHeader from './components/Header';
+import LayoutMenu from './components/Menu';
 import LayoutTabs from './components/TagsView';
 import './index.less';
 

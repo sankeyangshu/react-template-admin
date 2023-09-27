@@ -1,5 +1,5 @@
-import request from './request';
 import { AxiosRequestConfig } from 'axios';
+import request from './request';
 
 /**
  * 网络请求响应格式，T 是具体的接口返回类型数据

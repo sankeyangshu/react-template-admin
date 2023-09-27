@@ -1,12 +1,12 @@
-import { useLocation, useNavigate } from 'react-router-dom';
 import { CloseOutlined, DownOutlined, ReloadOutlined } from '@ant-design/icons';
-import { Dropdown, Button } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import SvgIcon from '@/components/SvgIcon';
+import { HOME_URL } from '@/config';
 import { useSettingStore } from '@/store/setting';
 import { useTagsViewStore } from '@/store/tagsView';
-import { HOME_URL } from '@/config';
-import type { MenuProps } from 'antd';
-import SvgIcon from '@/components/SvgIcon';
 
 const MoreButton = () => {
   // 使用i18n全局函数

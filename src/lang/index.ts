@@ -1,5 +1,5 @@
-import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import enUsTrans from './modules/en';
 import zhCnTrans from './modules/zh-cn';
 

@@ -1,13 +1,13 @@
 import { Layout } from 'antd';
-import User from './components/User';
-import Setting from './components/Setting';
-import ScreenFull from './components/ScreenFull';
+import BreadcrumbNav from './components/Breadcrumb';
+import CollapseIcon from './components/CollapseIcon';
 import ComponentSize from './components/ComponentSize';
+import HeaderSearch from './components/HeaderSearch';
 import LangSelect from './components/LangSelect';
 import Notice from './components/Notice';
-import CollapseIcon from './components/CollapseIcon';
-import BreadcrumbNav from './components/Breadcrumb';
-import HeaderSearch from './components/HeaderSearch';
+import ScreenFull from './components/ScreenFull';
+import Setting from './components/Setting';
+import User from './components/User';
 import './index.less';
 
 // 获取头部组件

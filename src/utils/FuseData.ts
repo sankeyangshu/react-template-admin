@@ -1,7 +1,7 @@
+import path from 'path-browserify';
+import i18n from '@/lang';
 import { RouteObject } from '@/routers/routeType';
 import { isNull } from './routers';
-import i18n from '@/lang';
-import path from 'path-browserify';
 
 /**
  * 筛选完路由对象类型

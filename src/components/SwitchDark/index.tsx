@@ -1,7 +1,7 @@
 import { Switch } from 'antd';
-import { useSettingStore } from '@/store/setting';
-import { useTheme } from '@/hooks/useTheme';
 import SvgIcon from '@/components/SvgIcon';
+import { useTheme } from '@/hooks/useTheme';
+import { useSettingStore } from '@/store/setting';
 
 const SwitchDark = () => {
   // 获取全局状态管理仓库中系统设置状态

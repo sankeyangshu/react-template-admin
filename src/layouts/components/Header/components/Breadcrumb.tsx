@@ -1,8 +1,8 @@
 import { Breadcrumb } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
-import { findAllBreadcrumb } from '@/utils/routers';
-import { constantRoutes } from '@/routers';
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
+import { constantRoutes } from '@/routers';
+import { findAllBreadcrumb } from '@/utils/routers';
 
 const BreadcrumbNav = () => {
   // 使用i18n全局函数

@@ -1,5 +1,5 @@
-import { useSettingStore } from '@/store/setting';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { useSettingStore } from '@/store/setting';
 
 const CollapseIcon = () => {
   // 获取全局设置中菜单收缩状态

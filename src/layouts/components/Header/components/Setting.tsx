@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
-import { Divider, Drawer, Tooltip, Switch, ColorPicker } from 'antd';
 import { FireOutlined, SettingOutlined } from '@ant-design/icons';
-import { useSettingStore } from '@/store/setting';
-import { useTheme } from '@/hooks/useTheme';
-import { DEFAULT_THEMECOLOR } from '@/config';
+import { ColorPicker, Divider, Drawer, Switch, Tooltip } from 'antd';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import SwitchDark from '@/components/SwitchDark';
+import { DEFAULT_THEMECOLOR } from '@/config';
+import { useTheme } from '@/hooks/useTheme';
+import { useSettingStore } from '@/store/setting';
 
 const Setting: FC = () => {
   // 是否显示系统设置抽屉

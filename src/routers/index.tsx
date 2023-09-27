@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
-import { RouteObject } from './routeType';
-import lazyLoad from './utils/lazyLoad';
 import Layout from '@/layouts';
 import systemRoutes from './modules/system';
+import lazyLoad from './utils/lazyLoad';
+import { RouteObject } from './routeType';
 
 // 异步路由表
 export const asyncRoutes: RouteObject[] = [...systemRoutes];

@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
 import { Spin } from 'antd';
+import React, { Suspense } from 'react';
 
 /**
  * @description: 路由懒加载

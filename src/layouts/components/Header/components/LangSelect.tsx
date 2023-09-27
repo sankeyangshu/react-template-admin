@@ -1,8 +1,8 @@
-import { Tooltip, Dropdown, message } from 'antd';
-import { useSettingStore } from '@/store/setting';
-import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';
+import { Dropdown, message, Tooltip } from 'antd';
+import { useTranslation } from 'react-i18next';
 import SvgIcon from '@/components/SvgIcon';
+import { useSettingStore } from '@/store/setting';
 
 const LangSelect = () => {
   // 获取全局设置中国际化默认值

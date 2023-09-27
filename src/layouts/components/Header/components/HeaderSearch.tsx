@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { Tooltip, Modal, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { Modal, Select, Tooltip } from 'antd';
+import Fuse from 'fuse.js'; // https://fusejs.io/ fuse.js文档
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { constantRoutes } from '@/routers';
-import { generateRoutes, filterRouteType } from '@/utils/FuseData';
-import Fuse from 'fuse.js'; // https://fusejs.io/ fuse.js文档
+import { filterRouteType, generateRoutes } from '@/utils/FuseData';
 
 const HeaderSearch = () => {
   // 是否显示搜索弹出框

@@ -1,13 +1,13 @@
-import { createElement, useCallback, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Tabs } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { constantRoutes } from '@/routers';
-import { generateRoutes, searchRoute } from '@/utils/routers';
-import { HOME_URL } from '@/config';
-import { useTagsViewStore } from '@/store/tagsView';
-import MoreButton from './components/MoreButton';
 import * as antdIcons from '@ant-design/icons';
+import { Tabs } from 'antd';
+import { createElement, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { HOME_URL } from '@/config';
+import { constantRoutes } from '@/routers';
+import { useTagsViewStore } from '@/store/tagsView';
+import { generateRoutes, searchRoute } from '@/utils/routers';
+import MoreButton from './components/MoreButton';
 import './index.less';
 
 const TagsView = () => {

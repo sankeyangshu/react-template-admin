@@ -1,7 +1,7 @@
 import { lazy } from 'react';
+import Layout from '@/layouts';
 import { RouteObject } from '../routeType';
 import lazyLoad from '../utils/lazyLoad';
-import Layout from '@/layouts';
 
 /**
  * 系统设置路由

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { RouteObject } from '@/routers/routeType';
 import { HOME_URL } from '@/config';
+import { RouteObject } from '@/routers/routeType';
 
 /**
  * 标签 state type

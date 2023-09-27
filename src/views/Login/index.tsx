@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import SwitchDark from '@/components/SwitchDark';
-import welcome from '@/assets/images/welcome.png';
+import { useState } from 'react';
 import logo from '@/assets/images/logo.png';
+import welcome from '@/assets/images/welcome.png';
+import SwitchDark from '@/components/SwitchDark';
 import './index.less';
 
 const Login = () => {

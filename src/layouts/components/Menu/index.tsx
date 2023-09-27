@@ -1,13 +1,13 @@
-import { createElement, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Layout, Menu, Spin } from 'antd';
-import { useSettingStore } from '@/store/setting';
-import { constantRoutes } from '@/routers';
-import { filterRoutes, getOpenKeys, isNull } from '@/utils/routers';
-import { useTranslation } from 'react-i18next';
-import type { MenuProps } from 'antd';
-import type { RouteObject } from '@/routers/routeType';
 import * as antdIcons from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Layout, Menu, Spin } from 'antd';
+import { createElement, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { constantRoutes } from '@/routers';
+import type { RouteObject } from '@/routers/routeType';
+import { useSettingStore } from '@/store/setting';
+import { filterRoutes, getOpenKeys, isNull } from '@/utils/routers';
 import Logo from './components/Logo';
 import './index.less';
 

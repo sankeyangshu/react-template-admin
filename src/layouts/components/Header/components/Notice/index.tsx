@@ -1,7 +1,7 @@
-import { Popover, Tooltip, Badge, Tabs } from 'antd';
 import { BellOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
 import type { TabsProps } from 'antd';
+import { Badge, Popover, Tabs, Tooltip } from 'antd';
+import { useTranslation } from 'react-i18next';
 import logo from '@/assets/images/logo.png';
 import noMessage from '@/assets/images/noMessage.png';
 import moduleCss from './index.module.less';

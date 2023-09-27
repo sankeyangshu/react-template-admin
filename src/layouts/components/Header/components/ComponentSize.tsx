@@ -1,8 +1,8 @@
-import { Tooltip, Dropdown } from 'antd';
-import { useSettingStore, componentSizeType } from '@/store/setting';
-import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';
+import { Dropdown, Tooltip } from 'antd';
+import { useTranslation } from 'react-i18next';
 import SvgIcon from '@/components/SvgIcon';
+import { componentSizeType, useSettingStore } from '@/store/setting';
 
 const ComponentSize = () => {
   // 获取全局设置中国际化默认值

@@ -1,6 +1,6 @@
-import { Avatar, Space, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Avatar, Dropdown, Space } from 'antd';
 
 const User = () => {
   // 下拉菜单
